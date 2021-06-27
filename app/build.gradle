@@ -14,16 +14,24 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-        }
+//        ndk {
+//            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+//        }
         externalNativeBuild {
             cmake {
                 cppFlags "-frtti -fexceptions"
-                targets "native-lib", "static-lib",  "testStaticLib" // New line here! //dagdag sa app/build/intermediates/cmake/debug/obj/?
+                targets  "native-lib", "static-lib", "testStaticLib"// New line here! //dagdag sa app/build/intermediates/cmake/debug/obj/?
             }
         }
     }
+
+//    added manually
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs'] // where libs is the name of the directory!
+        }
+    }
+//    added manually
 
     buildTypes {
         release {
