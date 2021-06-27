@@ -17,10 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int adding = add();
-        int subs = minus();
-        Integer resAdd= new Integer(adding);
-        Integer resSubtract= new Integer(subs);
 
         // Example of a call to a native method
         TextView tv1 = findViewById(R.id.tv1);
@@ -28,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         TextView tv3 = findViewById(R.id.tv3);
 
         tv1.setText(stringFromSharedJNI());
+
+
+        int adding = add();
+        int subs = minus();
+        Integer resAdd= new Integer(adding);
+        Integer resSubtract= new Integer(subs);
+
         tv2.setText("Static Add " + resAdd.toString());
         tv3.setText("Static Subtract " + resSubtract.toString());
     }
